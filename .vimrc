@@ -24,7 +24,6 @@ nnoremap <silent> [b :bprev<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-"
 " move line up and down
 nnoremap - :move +1
 nnoremap _ :move -2
