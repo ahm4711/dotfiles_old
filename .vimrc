@@ -1,24 +1,31 @@
 call plug#begin()
-"Plug 'tpope/vim-sensible'
-" Plug 'fatih/molokai'
 Plug 'maksimr/Lucius2'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-sensible'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
 " Plug 'haya14busa/incsearch.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 " Plug 'tpope/unimpairedj'
 " Plug 'sheerun/vim-polyglot'
 call plug#end()
 
+" colorscheme lucius
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+"
 " set the leader key to space
 let mapleader = " "
 let maplocalleader = "\\"
 filetype plugin on
 set nocompatible
+" backspace behaves as expected
+set backspace=indent,eol,start
 set number
 set wildmenu
-colorscheme lucius
+set autowrite
 
 " allow nice edit of vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -53,13 +60,8 @@ nnoremap <leader>o O<esc>
 " nnoremap S "_diwP
 iabbrev ahm@ ahm@labcognition.com
 
-
 noremap <leader>{ /{<CR>%
 
-" set timeoutlen=2000 
-" set ttimeoutlen=2000
-"
-"
 " search
 nnoremap <silent> <esc><esc> :nohls<cr>
 nnoremap <silent> <C-l> :nohls<cr><C-l>
@@ -67,17 +69,5 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-" incsearch.vim 
-" let g:incsearch#auto_nohlsearch = 1
-" map /  <Plug>(incsearch-forward)
-" map ?  <Plug>(incsearch-backward)
-" map g/ <Plug>(incsearch-stay)
-
-" map n  <Plug>(incsearch-nohl-n)
-" map N  <Plug>(incsearch-nohl-N)
-" map *  <Plug>(incsearch-nohl-*)
-" map #  <Plug>(incsearch-nohl-#)
-" map g* <Plug>(incsearch-nohl-g*)
-" map g# <Plug>(incsearch-nohl-g#)
 
 
