@@ -26,7 +26,10 @@ set backspace=indent,eol,start
 set number
 set wildmenu
 set autowrite
-
+set nobackup
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp//
 " allow nice edit of vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
