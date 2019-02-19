@@ -29,6 +29,7 @@ set autowrite
 set nobackup
 set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
+set undofile
 set undodir=~/.vim/tmp//
 " allow nice edit of vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
