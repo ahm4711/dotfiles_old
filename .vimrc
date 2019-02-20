@@ -1,6 +1,7 @@
 call plug#begin()
 " Plug 'vim-scripts/ShowMarks'
 " Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline'
 Plug 'maksimr/Lucius2'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
