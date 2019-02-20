@@ -1,4 +1,6 @@
 call plug#begin()
+" Plug 'vim-scripts/ShowMarks'
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'maksimr/Lucius2'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
@@ -34,8 +36,25 @@ set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
 set undofile
 set undodir=~/.vim/tmp//
+
+set wmh=0
+noremap <leader>1 :on!<CR>
+noremap <leader>2 :on!<CR>:vsp<CR>
+noremap <leader>3 :on!<CR>:vsp<CR><C-w>l:sp<CR>
+noremap <leader>4 :on!<CR>:sp<CR>:vsp<CR><C-w>j:vsp<CR>
+noremap <leader>5 :on!<CR>:vsp<CR>:sp<CR><C-w>l:sp<CR>:sp<CR>
+
+" noremap <leader>! mQ
+" noremap <leader>1 'Q
+" noremap <leader>@ mW
+" noremap <leader>2 'W
+" noremap <leader># mE
+" noremap <leader>3 'E
+" noremap <leader>$ mR
+" noremap <leader>4 'R
+
 " allow nice edit of vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
