@@ -1,22 +1,29 @@
-call plug#begin()
-" Plug 'vim-scripts/ShowMarks'
+call plug#begin() " Plug 'vim-scripts/ShowMarks'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
-Plug 'maksimr/Lucius2'
+Plug 'romainl/vim-qf'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
 "Plug 'tpope/vim-sensible'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
 " Plug 'haya14busa/incsearch.vim'
-Plug 'tpope/vim-unimpaired'
 " Plug 'sheerun/vim-polyglot'
 call plug#end()
 
-" colorscheme lucius
+set guioptions -=m 
+set guioptions -=T
+set guifont=Monospace\ 12
+
 set background=dark
-let g:gruvbox_contrast_dark = 'hard'
+set termguicolors
+let g:gruvbox_italic=1
+let g:gruvbox_hls_cursor='blue'
+" let g:gruvbox_guisp_fallback='bg'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
 "
 " set the leader key to space
@@ -45,17 +52,9 @@ noremap <leader>3 :on!<CR>:vsp<CR><C-w>l:sp<CR>
 noremap <leader>4 :on!<CR>:sp<CR>:vsp<CR><C-w>j:vsp<CR>
 noremap <leader>5 :on!<CR>:vsp<CR>:sp<CR><C-w>l:sp<CR>:sp<CR>
 
-" noremap <leader>! mQ
-" noremap <leader>1 'Q
-" noremap <leader>@ mW
-" noremap <leader>2 'W
-" noremap <leader># mE
-" noremap <leader>3 'E
-" noremap <leader>$ mR
-" noremap <leader>4 'R
-
+nnoremap <leader>ex :Explore<cr>
 " allow nice edit of vimrc
-nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>ev :edit! $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
