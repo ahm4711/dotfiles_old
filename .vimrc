@@ -38,6 +38,7 @@ set spell
 set spellfile=~/.vim/spell/en.utf-8.add
 set number
 set wildmenu
+set wildmode=longest,list
 set autowrite
 set nobackup
 set backupdir=~/.vim/tmp//
@@ -45,6 +46,7 @@ set directory=~/.vim/tmp//
 set undofile
 set undodir=~/.vim/tmp//
 
+set autochdir
 set wmh=0
 noremap <leader>1 :on!<CR>
 noremap <leader>2 :on!<CR>:vsp<CR>
