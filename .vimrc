@@ -7,7 +7,7 @@ Plug 'tpope/vim-commentary'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
 " Plug 'haya14busa/incsearch.vim'
-" Plug 'tpope/unimpairedj'
+Plug 'tpope/vim-unimpaired'
 " Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -23,6 +23,9 @@ filetype plugin on
 set nocompatible
 " backspace behaves as expected
 set backspace=indent,eol,start
+" enable spell checking
+set spell
+set spellfile=~/.vim/spell/en.utf-8.add
 set number
 set wildmenu
 set autowrite
@@ -34,7 +37,8 @@ set undodir=~/.vim/tmp//
 " allow nice edit of vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
+" search current word
+noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 " save time use jk to esc
 inoremap jk <esc>
 inoremap <esc> <nop>
