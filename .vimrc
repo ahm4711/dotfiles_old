@@ -12,12 +12,18 @@ Plug 'tpope/vim-unimpaired'
 " Plug 'haya14busa/incsearch.vim'
 " Plug 'sheerun/vim-polyglot'
 call plug#end()
-filetype plugin indent on
-autocmd BufNewFile,BufRead *.props set ft=xml
-set guioptions -=m 
-set guioptions -=T
-set guifont=Monospace\ 12
 
+filetype plugin indent on
+" known extensions
+autocmd BufNewFile,BufRead *.props,*.csproj set ft=xml
+
+if has('gui')
+	set guioptions -=m 
+	set guioptions -=T
+	set guifont=Monospace\ 12
+endif
+"
+" color theme stuff
 set background=dark
 set termguicolors
 let g:gruvbox_italic=1
@@ -30,7 +36,6 @@ colorscheme gruvbox
 " set the leader key to space
 let mapleader = " "
 let maplocalleader = "\\"
-filetype plugin on
 set nocompatible
 " backspace behaves as expected
 set backspace=indent,eol,start
@@ -41,13 +46,17 @@ set number
 set wildmenu
 set wildmode=longest,list
 set autowrite
+set autochdir
+" undo and backup
 set nobackup
 set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
 set undofile
 set undodir=~/.vim/tmp//
 
-set autochdir
+noremap <leader>gs :Gstatus<CR>
+
+" window mappings
 set wmh=0
 noremap <leader>1 :on!<CR>
 noremap <leader>2 :on!<CR>:vsp<CR>
