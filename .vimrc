@@ -16,10 +16,11 @@ call plug#end()
 filetype plugin indent on
 " known extensions
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
-" autocompletio
-set dictionary+=~/_vscmd.txt
+" autocompletion
+set dictionary+=~/.vim/dict/vs2017.txt
 set complete+=k
-Edit.:w
+set iskeyword+=.
+
 if has('gui')
 	set guioptions -=m 
 	set guioptions -=T
