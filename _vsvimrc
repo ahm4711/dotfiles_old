@@ -49,6 +49,9 @@ set smartcase
 noremap ]b :vsc Window.NextDocumentWindow<CR>
 noremap [b :vsc Window.PreviousDocumentWindow<CR>
 
+noremap <leader>fd :vsc Edit.FormatDocument<CR>
+noremap <leader>cd :vsc Edit.UncommentSelection<CR>
+noremap <leader>cc :vsc Edit.CommentSelection<CR>
 noremap <C-o> :vsc View.NavigateBackward<CR>
 noremap <C-i> :vsc View.NavigateForward<CR>
 " noremap <leader>nb :vsc View.NavigateBackward<CR>
