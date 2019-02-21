@@ -12,7 +12,8 @@ Plug 'tpope/vim-unimpaired'
 " Plug 'haya14busa/incsearch.vim'
 " Plug 'sheerun/vim-polyglot'
 call plug#end()
-
+filetype plugin indent on
+autocmd BufNewFile,BufRead *.props set ft=xml
 set guioptions -=m 
 set guioptions -=T
 set guifont=Monospace\ 12
