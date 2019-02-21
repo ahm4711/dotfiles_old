@@ -14,10 +14,21 @@ Plug 'tpope/vim-unimpaired'
 " Plug 'sheerun/vim-polyglot'
 call plug#end()
 
-set guioptions -=m 
-set guioptions -=T
-set guifont=Monospace\ 12
+filetype plugin indent on
+" known extensions
+autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
+" autocompletion
+set dictionary+=~/.vim/dict/vs2017.txt
+set complete+=k
+set iskeyword+=.
 
+if has('gui')
+	set guioptions -=m 
+	set guioptions -=T
+	set guifont=Monospace\ 12
+endif
+"
+" color theme stuff
 set background=dark
 set termguicolors
 let g:gruvbox_italic=1
@@ -30,7 +41,6 @@ colorscheme gruvbox
 " set the leader key to space
 let mapleader = " "
 let maplocalleader = "\\"
-filetype plugin on
 set nocompatible
 " backspace behaves as expected
 set backspace=indent,eol,start
@@ -39,26 +49,38 @@ set spell
 set spellfile=~/.vim/spell/en.utf-8.add
 set number
 set wildmenu
+set wildmode=longest,list
 set autowrite
+" set autochdir
+" undo and backup
 set nobackup
 set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
 set undofile
 set undodir=~/.vim/tmp//
+" git stuff
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gp :Gpush<CR>
+noremap <leader>gl :Gpull<CR>
+noremap <leader>gf :Gfetch<CR>
 
+" window mappings
 set wmh=0
 noremap <leader>1 :on!<CR>
 noremap <leader>2 :on!<CR>:vsp<CR>
 noremap <leader>3 :on!<CR>:vsp<CR><C-w>l:sp<CR>
 noremap <leader>4 :on!<CR>:sp<CR>:vsp<CR><C-w>j:vsp<CR>
 noremap <leader>5 :on!<CR>:vsp<CR>:sp<CR><C-w>l:sp<CR>:sp<CR>
-
+" Record into register 'q', playback with 'Q' also disables EX mode...
+nnoremap Q @q
 nnoremap <leader>ex :Explore<cr>
 " allow nice edit of vimrc
 nnoremap <leader>ev :edit! $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+noremap  <F6> :exec '!'.getline('.')
 " save time use jk to esc
 inoremap jk <esc>
 inoremap <esc> <nop>
