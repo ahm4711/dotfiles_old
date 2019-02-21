@@ -15,7 +15,7 @@ call plug#end()
 
 filetype plugin indent on
 " known extensions
-autocmd BufNewFile,BufRead *.props,*.csproj set ft=xml
+autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
 
 if has('gui')
 	set guioptions -=m 
@@ -46,7 +46,7 @@ set number
 set wildmenu
 set wildmode=longest,list
 set autowrite
-set autochdir
+" set autochdir
 " undo and backup
 set nobackup
 set backupdir=~/.vim/tmp//
@@ -73,6 +73,8 @@ nnoremap <leader>ev :edit! $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+noremap  <F6> :exec '!'.getline('.')
 " save time use jk to esc
 inoremap jk <esc>
 inoremap <esc> <nop>
