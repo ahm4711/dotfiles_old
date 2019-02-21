@@ -53,8 +53,11 @@ set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
 set undofile
 set undodir=~/.vim/tmp//
-
+" git stuff
 noremap <leader>gs :Gstatus<CR>
+noremap <leader>gp :Gpush<CR>
+noremap <leader>gl :Gpull<CR>
+noremap <leader>gf :Gfetch<CR>
 
 " window mappings
 set wmh=0
