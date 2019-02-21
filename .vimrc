@@ -70,7 +70,8 @@ noremap <leader>2 :on!<CR>:vsp<CR>
 noremap <leader>3 :on!<CR>:vsp<CR><C-w>l:sp<CR>
 noremap <leader>4 :on!<CR>:sp<CR>:vsp<CR><C-w>j:vsp<CR>
 noremap <leader>5 :on!<CR>:vsp<CR>:sp<CR><C-w>l:sp<CR>:sp<CR>
-
+" Record into register 'q', playback with 'Q' also disables EX mode...
+nnoremap Q @q
 nnoremap <leader>ex :Explore<cr>
 " allow nice edit of vimrc
 nnoremap <leader>ev :edit! $MYVIMRC<cr>
