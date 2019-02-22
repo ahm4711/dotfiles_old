@@ -95,6 +95,10 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 " disable arrow key movement for educational purpose
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
@@ -118,7 +122,7 @@ noremap <leader>{ /{<CR>%
 
 " search
 nnoremap <silent> <esc><esc> :nohls<cr>
-nnoremap <silent> <C-l> :nohls<cr><C-l>
+" nnoremap <silent> <C-l> :nohls<cr><C-l>
 set incsearch
 set hlsearch
 set ignorecase
