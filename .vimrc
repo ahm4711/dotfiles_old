@@ -4,22 +4,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'romainl/vim-qf'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-commentary'
+" Plug 'christoomey/vim-tmux-navigator'
+Plug 'ervandew/supertab'
 Plug 'tpope/vim-unimpaired'
-"Plug 'tpope/vim-sensible'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
-" Plug 'haya14busa/incsearch.vim'
-" Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 filetype plugin indent on
 " known extensions
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
-" autocompletion
-set dictionary+=~/.vim/dict/vs2017.txt
-set complete+=k
-set iskeyword+=.
 
 if has('gui')
 	set guioptions -=m 
@@ -128,4 +122,7 @@ set hlsearch
 set ignorecase
 set smartcase
 
-
+" autocompletion
+set dictionary+=~/.vim/dict/vs2017.txt
+set complete+=k
+set iskeyword+=.
