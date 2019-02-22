@@ -83,6 +83,8 @@ noremap <F6> :exec '!'.getline('.')
 noremap <F8> :cnext<CR>
 noremap <S-F8> :cprev<CR>
 
+noremap <leader>q :bd<CR>
+noremap <leader>w :w<CR>
 " save time use jk to esc
 inoremap jk <esc>
 inoremap <esc> <nop>
