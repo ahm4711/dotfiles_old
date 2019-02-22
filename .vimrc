@@ -79,7 +79,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
-noremap  <F6> :exec '!'.getline('.')
+noremap <F6> :exec '!'.getline('.')
+noremap <F8> :cnext<CR>
+noremap <S-F8> :cprev<CR>
+
 " save time use jk to esc
 inoremap jk <esc>
 inoremap <esc> <nop>
