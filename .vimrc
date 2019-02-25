@@ -6,13 +6,11 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tmux-plugins/vim-tmux'
+" Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-unimpaired'
 call plug#end()
 
-noremap <leader>pi :PlugInstall<CR>
 filetype plugin indent on
 " known extensions
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
@@ -46,7 +44,8 @@ set number
 set wildmenu
 set wildmode=longest,list
 set autowrite
-" set autochdir
+set list listchars=tab:»·,trail:·
+"set autochdir
 " undo and backup
 set nobackup
 set backupdir=~/.vim/tmp//
@@ -75,7 +74,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
-noremap <F6> :exec '!'.getline('.')
+noremap <F6> :exec '!'.getline('.')<CR>
+noremap <F12> :call system(.getline('.')." &"<CR>
 noremap <F8> :cnext<CR>
 noremap <S-F8> :cprev<CR>
 
