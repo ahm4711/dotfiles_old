@@ -74,10 +74,11 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
-noremap <F6> :exec '!'.getline('.')<CR>
-noremap <F12> :call system(.getline('.')." &"<CR>
 noremap <F8> :cnext<CR>
 noremap <S-F8> :cprev<CR>
+" run commands from line
+noremap <F11> :exec '!' . getline('.')<CR>
+noremap <F12> :silent call system(getline('.') . " &")<CR>
 
 noremap <leader>q :bd<CR>
 noremap <leader>w :w<CR>
