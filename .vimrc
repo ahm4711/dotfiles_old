@@ -9,6 +9,7 @@ Plug 'tpope/vim-commentary'
 " Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
 call plug#end()
 
 filetype plugin indent on
