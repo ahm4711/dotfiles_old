@@ -8,6 +8,10 @@ git pull origin master
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Movement Mappings
+onoremap p i(
+onoremap in( :<c-u>normal! f(vi(<cr>
+
 # dotfiles
 change to dir of current file
 :cd %:h
