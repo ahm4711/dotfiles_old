@@ -120,6 +120,8 @@ iabbrev ahm@ ahm@labcognition.com
 
 noremap <leader>{ /{<CR>%
 
+" set some persistence options
+set viminfo='1000,f1,<500,h
 " search
 nnoremap <silent> <esc><esc> :nohls<cr>
 " nnoremap <silent> <C-l> :nohls<cr><C-l>
