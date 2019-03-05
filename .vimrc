@@ -9,19 +9,25 @@ Plug 'tpope/vim-commentary'
 " Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
 call plug#end()
 
 filetype plugin indent on
 " known extensions
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
-
+" Vimscript file settings {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
 if has('gui')
 	set guioptions -=m
 	set guioptions -=T
 	set guifont=Monospace\ 12
 endif
 "
-" color theme stuff
+" color theme stuff {{{
 set background=dark
 set termguicolors
 let g:gruvbox_italic=1
@@ -30,6 +36,7 @@ let g:gruvbox_hls_cursor='blue'
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
+" }}}
 "
 " set the leader key to space
 let mapleader = " "
@@ -120,6 +127,8 @@ iabbrev ahm@ ahm@labcognition.com
 
 noremap <leader>{ /{<CR>%
 
+" set some persistence options
+set viminfo='1000,f1,<500,h
 " search
 nnoremap <silent> <esc><esc> :nohls<cr>
 " nnoremap <silent> <C-l> :nohls<cr><C-l>
