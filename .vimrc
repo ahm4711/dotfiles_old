@@ -1,3 +1,4 @@
+" plugins {{{
 call plug#begin() " Plug 'vim-scripts/ShowMarks'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
@@ -11,14 +12,27 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 call plug#end()
-
+" }}}
 filetype plugin indent on
+" stj  file settings {{{
+augroup filetype_stj
+	autocmd!
+	autocmd BufNewFile,BufRead *.content,*.library,*.substance,*.jsonc
+				\ setlocal ft=json |
+				\ setlocal suffixesadd+=.substance |
+				\ setlocal path+=/d/_src/stj-lib/substance/ |
+				\ setlocal nowrap
+	autocmd BufRead *.substance
+				\ :%!python -m json.tool
+augroup END
+command! FormatJSON %!python -m json.tool
+" }}}
 " known extensions
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
 " Vimscript file settings {{{
 augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
 if has('gui')
@@ -94,7 +108,6 @@ noremap <leader>q :bd<CR>
 noremap <leader>w :w<CR>
 " save time use jk to esc
 inoremap jk <esc>
-inoremap <esc> <nop>
 
 " buffer navigation
 nnoremap <silent> [b :bprev<CR>
