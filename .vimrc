@@ -44,6 +44,7 @@ set number
 set wildmenu
 set wildmode=longest,list
 set autowrite
+set encoding=utf8
 set list listchars=tab:»·,trail:·
 "set autochdir
 " undo and backup
