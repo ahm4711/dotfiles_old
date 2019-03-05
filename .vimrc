@@ -16,7 +16,7 @@ filetype plugin indent on
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
 
 if has('gui')
-	set guioptions -=m 
+	set guioptions -=m
 	set guioptions -=T
 	set guifont=Monospace\ 12
 endif
@@ -44,7 +44,7 @@ set number
 set wildmenu
 set wildmode=longest,list
 set autowrite
-set encoding=utf8
+" set encoding=utf8
 set list listchars=tab:»·,trail:·
 "set autochdir
 " undo and backup
