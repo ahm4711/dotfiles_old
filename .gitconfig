@@ -4,13 +4,14 @@
 [mergetool "kdiff3"]
 	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
 [diff]
-	guitool = code
+	guitool = kdiff3
 [difftool "kdiff3"]
-	path = C:/Program Files/KDiff3/kdiff3.exe
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+	cmd = \"C:/Program Files (x86)/KDiff3/kdiff3.exe\" \"$LOCAL\" \"$REMOTE\"
 [difftool "code"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [core]
-	editor = code
+	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
 	eol = crlf
 [user]
 	name = ahm
@@ -44,3 +45,7 @@
 	prune = false
 [rebase]
 	autoStash = false
+[difftool "vimdiff"]
+	path = c:/msys64/usr/bin/vimdiff.exe
+[mergetool]
+	keepBackup = false
