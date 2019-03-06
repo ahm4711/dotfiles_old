@@ -58,27 +58,37 @@ let maplocalleader = "\\"
 set nocompatible
 " backspace behaves as expected
 set backspace=indent,eol,start
-" enable spell checking
+" enable spell checking {{{
 set spell
 set spellfile=~/.vim/spell/en.utf-8.add
+"}}}
+" tabs to 4 and insert spaces {{{
+set tabstop=4
+let &shiftwidth=&tabstop
+let &softtabstop = &shiftwidth
+set expandtab
+"}}}
 set number
 set wildmenu
 set wildmode=longest,list
 set autowrite
+set hidden
 " set encoding=utf8
 set list listchars=tab:»·,trail:·
 "set autochdir
-" undo and backup
+" undo and backup {{{
 set nobackup
 set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
 set undofile
 set undodir=~/.vim/tmp//
-" git stuff
+"}}}
+" git stuff {{{
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gp :Gpush<CR>
 noremap <leader>gl :Gpull<CR>
 noremap <leader>gf :Gfetch<CR>
+"}}}
 " allow the . to execute once for each line of a visual selection
 vnoremap . :normal .<CR>
 
