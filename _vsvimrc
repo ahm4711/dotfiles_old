@@ -66,12 +66,13 @@ noremap <C-i> :vsc View.NavigateForward<CR>
 " noremap <leader>gd :vsc View.NavigateBackward<CR>
 " noremap <leader>nf :vsc View.NavigateForward<CR>
 noremap <leader>gd :vsc Edit.GoToDefinition<CR>
-noremap <leader>rm :vsc Refactor.ExtractMethod<CR><ESC>
-noremap <leader>ri :vsc Refactor.ExtractInterface<CR><ESC>
-noremap <leader>rr :vsc Refactor.Rename<CR><ESC>
-noremap <leader>ro :vsc Refactor.ReorderParameter<CR><ESC>
+noremap <leader>rm :vsc Refactor.ExtractMethod<CR><Esc>b
+noremap <leader>ri :vsc Refactor.ExtractInterface<CR>
+noremap <leader>rr :vsc Refactor.Rename<CR><Esc>
+noremap <leader>rp :vsc Refactor.ReorderParameters<CR>
 noremap <leader>rs :vsc Edit.RemoveAndSort<CR>
 noremap <leader>fr :vsc Edit.FindAllReferences<CR>
+noremap gD :vsc Edit.FindAllReferences<CR>
 noremap <leader>b :vsc Build.BuildSolution<CR>
 noremap <leader>vs :vsc View.SolutionExplorer<CR>
 noremap <leader>xx :vsc EditorContextMenus.CodeWindow.QuickActionsForPosition<CR>
@@ -85,5 +86,7 @@ noremap <leader>a :vsc Window.ActivateDocumentWindow<CR>
 noremap <leader>n :vsc Edit.GoToNextLocation<CR>
 noremap <leader>N :vsc Edit.GoToPrevLocation<CR>
 
+noremap <leader>e :vsc View.NextError<CR>
+noremap <leader>E :vsc View.PreviousError<CR>
 noremap ]l :vsc View.NextError<CR>
 noremap [l :vsc View.PreviousError<CR>
