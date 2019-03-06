@@ -12,7 +12,7 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 call plug#end()
-" }}}
+"}}}
 filetype plugin indent on
 " stj  file settings {{{
 augroup filetype_stj
@@ -26,7 +26,7 @@ augroup filetype_stj
 				\ :%!python -m json.tool
 augroup END
 command! FormatJSON %!python -m json.tool
-" }}}
+"}}}
 " known extensions
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
 " Vimscript file settings {{{
@@ -34,7 +34,7 @@ augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
-" }}}
+"}}}
 if has('gui')
 	set guioptions -=m
 	set guioptions -=T
@@ -50,7 +50,7 @@ let g:gruvbox_hls_cursor='blue'
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
-" }}}
+"}}}
 "
 " set the leader key to space
 let mapleader = " "
