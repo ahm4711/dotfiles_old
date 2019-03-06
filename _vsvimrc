@@ -70,10 +70,11 @@ noremap <leader>rm :vsc Refactor.ExtractMethod<CR><ESC>
 noremap <leader>ri :vsc Refactor.ExtractInterface<CR><ESC>
 noremap <leader>rr :vsc Refactor.Rename<CR><ESC>
 noremap <leader>ro :vsc Refactor.ReorderParameter<CR><ESC>
+noremap <leader>rs :vsc Edit.RemoveAndSort<CR>
 noremap <leader>fr :vsc Edit.FindAllReferences<CR>
 noremap <leader>b :vsc Build.BuildSolution<CR>
 noremap <leader>vs :vsc View.SolutionExplorer<CR>
-noremap <leader>su :vsc Edit.RemoveAndSort<CR>
+noremap <leader>xx :vsc EditorContextMenus.CodeWindow.QuickActionsForPosition<CR>
 
 noremap <leader>1 :source ~/_vsvimrc<CR>
 noremap <leader>2 :echo aaaabbb:w
