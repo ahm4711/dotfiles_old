@@ -16,14 +16,14 @@ call plug#end()
 filetype plugin indent on
 " stj  file settings {{{
 augroup filetype_stj
-	autocmd!
-	autocmd BufNewFile,BufRead *.content,*.library,*.substance,*.jsonc
-				\ setlocal ft=json |
-				\ setlocal suffixesadd+=.substance |
-				\ setlocal path+=/d/_src/stj-lib/substance/ |
-				\ setlocal nowrap
-	autocmd BufRead *.substance
-				\ :%!python -m json.tool
+    autocmd!
+    autocmd BufNewFile,BufRead *.content,*.library,*.substance,*.jsonc
+                \ setlocal ft=json |
+                \ setlocal suffixesadd+=.substance |
+                \ setlocal path+=/d/_src/stj-lib/substance/ |
+                \ setlocal nowrap
+    autocmd BufRead *.substance
+                \ :%!python -m json.tool
 augroup END
 command! FormatJSON %!python -m json.tool
 "}}}
@@ -31,14 +31,14 @@ command! FormatJSON %!python -m json.tool
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
 " Vimscript file settings {{{
 augroup filetype_vim
-	autocmd!
-	autocmd FileType vim setlocal foldmethod=marker
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
 augroup END
 "}}}
 if has('gui')
-	set guioptions -=m
-	set guioptions -=T
-	set guifont=Monospace\ 12
+    set guioptions -=m
+    set guioptions -=T
+    set guifont=Monospace\ 12
 endif
 "
 " color theme stuff {{{
@@ -56,6 +56,7 @@ colorscheme gruvbox
 let mapleader = " "
 let maplocalleader = "\\"
 set nocompatible
+set nowrap
 " backspace behaves as expected
 set backspace=indent,eol,start
 " enable spell checking {{{
@@ -73,6 +74,7 @@ set wildmenu
 set wildmode=longest,list
 set autowrite
 set hidden
+set cursorline
 " set encoding=utf8
 set list listchars=tab:»·,trail:·
 "set autochdir
@@ -91,7 +93,8 @@ noremap <leader>gf :Gfetch<CR>
 "}}}
 " allow the . to execute once for each line of a visual selection
 vnoremap . :normal .<CR>
-
+set path=.,**
+nnoremap <leader>f :find *
 " window mappings
 set wmh=0
 noremap <leader>1 :on!<CR>
@@ -107,7 +110,8 @@ nnoremap <leader>ev :edit! $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <F5> :next **/*
+nnoremap gb :buffers<CR>:buffer<Space>
 noremap <F8> :cnext<CR>
 noremap <S-F8> :cprev<CR>
 " run commands from line
