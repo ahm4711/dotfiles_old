@@ -1,5 +1,7 @@
 " Plugins {{{
 call plug#begin()
+Plug 'glts/vim-magnum'
+Plug 'glts/vim-radical'
 Plug 'vim-airline/vim-airline'
 Plug 'romainl/vim-qf'
 Plug 'morhetz/gruvbox'
