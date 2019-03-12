@@ -17,7 +17,7 @@ nnoremap <leader>sv :source ~/_vsvimrc<cr>
 
 " save time use jk to esc
 inoremap jk <esc>
-inoremap <esc> <nop>
+" inoremap <esc> <nop>
 
 " buffer navigation
 nnoremap <silent> [b :bprev<CR>
@@ -26,8 +26,8 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
 " disable arrow key movement for educational purpose
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
+" nnoremap <Left> <Nop>
+" nnoremap <Right> <Nop>
 " move line up and down
 nnoremap - :m .+1<CR>==
 nnoremap _ :m .-2<CR>==
@@ -53,7 +53,7 @@ set smartcase
 
 noremap ]b :vsc Window.NextDocumentWindow<CR>
 noremap [b :vsc Window.PreviousDocumentWindow<CR>
-inoremap <leader> { {<CR><BS>}<Esc>ko
+" inoremap <leader>{ {<CR><BS>}<Esc>ko
 noremap <leader>q :q<CR>
 noremap <leader>w :w<CR>
 noremap <leader>sw :vsc Edit.SurroundWith<CR>
@@ -66,14 +66,16 @@ noremap <C-i> :vsc View.NavigateForward<CR>
 " noremap <leader>gd :vsc View.NavigateBackward<CR>
 " noremap <leader>nf :vsc View.NavigateForward<CR>
 noremap <leader>gd :vsc Edit.GoToDefinition<CR>
-noremap <leader>rm :vsc Refactor.ExtractMethod<CR><ESC>
-noremap <leader>ri :vsc Refactor.ExtractInterface<CR><ESC>
-noremap <leader>rr :vsc Refactor.Rename<CR><ESC>
-noremap <leader>ro :vsc Refactor.ReorderParameter<CR><ESC>
+noremap <leader>rm :vsc Refactor.ExtractMethod<CR><Esc>b
+noremap <leader>ri :vsc Refactor.ExtractInterface<CR>
+noremap <leader>rr :vsc Refactor.Rename<CR><Esc>
+noremap <leader>rp :vsc Refactor.ReorderParameters<CR>
+noremap <leader>rs :vsc Edit.RemoveAndSort<CR>
 noremap <leader>fr :vsc Edit.FindAllReferences<CR>
+noremap gD :vsc Edit.FindAllReferences<CR>
 noremap <leader>b :vsc Build.BuildSolution<CR>
 noremap <leader>vs :vsc View.SolutionExplorer<CR>
-noremap <leader>su :vsc Edit.RemoveAndSort<CR>
+noremap <leader>xx :vsc EditorContextMenus.CodeWindow.QuickActionsForPosition<CR>
 
 noremap <leader>1 :source ~/_vsvimrc<CR>
 noremap <leader>2 :echo aaaabbb:w
@@ -84,7 +86,7 @@ noremap <leader>a :vsc Window.ActivateDocumentWindow<CR>
 noremap <leader>n :vsc Edit.GoToNextLocation<CR>
 noremap <leader>N :vsc Edit.GoToPrevLocation<CR>
 
-
-
+noremap <leader>e :vsc View.NextError<CR>
+noremap <leader>E :vsc View.PreviousError<CR>
 noremap ]l :vsc View.NextError<CR>
 noremap [l :vsc View.PreviousError<CR>

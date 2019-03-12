@@ -43,4 +43,8 @@ Remove mapping from insert mode
 
 iunmap MAPPING
 
+Paste into command line
 
+CTRL-R
+	CTRL-W word 
+	CTRL-A WORD

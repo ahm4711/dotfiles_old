@@ -16,6 +16,19 @@ Plug 'tpope/vim-obsession'
 call plug#end()
 "}}}
 filetype plugin indent on
+" stj  file settings {{{
+augroup filetype_stj
+    autocmd!
+    autocmd BufNewFile,BufRead *.content,*.library,*.substance,*.jsonc
+                \ setlocal ft=json |
+                \ setlocal suffixesadd+=.substance |
+                \ setlocal path+=/d/_src/stj-lib/substance/ |
+                \ setlocal nowrap
+    autocmd BufRead *.substance
+                \ :%!python -m json.tool
+augroup END
+command! FormatJSON %!python -m json.tool
+"}}}
 " known extensions
 autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
 " Vimscript file settings {{{
@@ -26,9 +39,9 @@ augroup END
 "}}}
 " GUI options {{{
 if has('gui')
-	set guioptions -=m 
-	set guioptions -=T
-	set guifont=Monospace\ 12
+    set guioptions -=m
+    set guioptions -=T
+    set guifont=Monospace\ 12
 endif
 "}}}
 " color theme stuff {{{
@@ -44,16 +57,26 @@ colorscheme gruvbox
 let mapleader = " "
 let maplocalleader = "\\"
 set nocompatible
+set nowrap
 " backspace behaves as expected
 set backspace=indent,eol,start
 " enable spell checking {{{
 set spell
 set spellfile=~/.vim/spell/en.utf-8.add
 "}}}
+" tabs to 4 and insert spaces {{{
+set tabstop=4
+let &shiftwidth=&tabstop
+let &softtabstop = &shiftwidth
+set expandtab
+"}}}
 set number
 set wildmenu
 set wildmode=longest,list
 set autowrite
+set hidden
+set cursorline
+" set encoding=utf8
 set list listchars=tab:»·,trail:·
 " undo and backup {{{
 set nobackup
@@ -70,8 +93,9 @@ noremap <leader>gf :Gfetch<CR>
 "}}}
 " allow the . to execute once for each line of a visual selection
 vnoremap . :normal .<CR>
-
-" window mappings {{{
+set path=.,**
+nnoremap <leader>f :find *
+" window mappings
 set wmh=0
 noremap <leader>1 :on!<CR>
 noremap <leader>2 :on!<CR>:vsp<CR>
@@ -89,7 +113,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "}}}
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <F5> :next **/*
+nnoremap gb :buffers<CR>:buffer<Space>
 noremap <F8> :cnext<CR>
 noremap <S-F8> :cprev<CR>
 " run commands from line
@@ -100,7 +125,6 @@ noremap <leader>q :close<CR>
 noremap <leader>w :w<CR>
 " save time use jk to esc
 inoremap jk <esc>
-inoremap <esc> <nop>
 
 " buffer navigation {{{
 nnoremap <silent> [b :bprev<CR>
@@ -144,4 +168,15 @@ set smartcase
 set dictionary+=~/.vim/dict/vs2017.txt
 set complete+=k
 set iskeyword+=.
-" }}}
+
+" Search in all currently opened buffers {{{
+function! ClearQuickfixList()
+  call setqflist([])
+endfunction
+function! Vimgrepall(pattern)
+  call ClearQuickfixList()
+  exe 'bufdo vimgrepadd ' . shellescape(a:pattern) . ' %'
+  cnext
+endfunction
+command! -nargs=1 Bgrep call Vimgrepall(<f-args>)
+"}}}
