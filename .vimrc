@@ -96,7 +96,7 @@ noremap <S-F8> :cprev<CR>
 noremap <F11> :exec '!' . getline('.')<CR>
 noremap <F12> :silent call system(getline('.') . " &")<CR>
 
-noremap <leader>q :bd<CR>
+noremap <leader>q :close<CR>
 noremap <leader>w :w<CR>
 " save time use jk to esc
 inoremap jk <esc>
