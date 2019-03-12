@@ -168,3 +168,15 @@ set smartcase
 set dictionary+=~/.vim/dict/vs2017.txt
 set complete+=k
 set iskeyword+=.
+
+" Search in all currently opened buffers {{{
+function! ClearQuickfixList()
+  call setqflist([])
+endfunction
+function! Vimgrepall(pattern)
+  call ClearQuickfixList()
+  exe 'bufdo vimgrepadd ' . shellescape(a:pattern) . ' %'
+  cnext
+endfunction
+command! -nargs=1 Bgrep call Vimgrepall(<f-args>)
+"}}}
