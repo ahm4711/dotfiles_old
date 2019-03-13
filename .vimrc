@@ -14,11 +14,14 @@ Plug 'tpope/vim-obsession'
 call plug#end()
 "}}}
 filetype plugin indent on
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
 " visual studio  file settings {{{
 augroup filetype_visualstudio
     autocmd!
     autocmd BufNewFile,BufRead *.sln,*.props,*.csproj
                 \ setlocal ft=xml |
+                \ setlocal foldmethod=syntax |
                 \ setlocal expandtab |
                 \ setlocal shiftwidth=2 |
                 \ setlocal softtabstop=2
