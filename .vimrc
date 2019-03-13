@@ -14,6 +14,16 @@ Plug 'tpope/vim-obsession'
 call plug#end()
 "}}}
 filetype plugin indent on
+" visual studio  file settings {{{
+augroup filetype_visualstudio
+    autocmd!
+    autocmd BufNewFile,BufRead *.sln,*.props,*.csproj
+                \ setlocal ft=xml |
+                \ setlocal expandtab |
+                \ setlocal shiftwidth=2 |
+                \ setlocal softtabstop=2
+augroup END
+"}}}
 " stj  file settings {{{
 augroup filetype_stj
     autocmd!
@@ -28,7 +38,6 @@ augroup END
 command! FormatJSON %!python -m json.tool
 "}}}
 " known extensions
-autocmd BufNewFile,BufRead *.sln,*.props,*.csproj set ft=xml
 " Vimscript file settings {{{
 augroup filetype_vim
     autocmd!
