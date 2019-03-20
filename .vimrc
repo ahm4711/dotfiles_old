@@ -14,8 +14,10 @@ Plug 'tpope/vim-obsession'
 call plug#end()
 "}}}
 filetype plugin indent on
+" enable folding for xml {{{
 let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
+autocmd FileType xml setlocal foldmethod=syntax
+" }}}
 " visual studio  file settings {{{
 augroup filetype_visualstudio
     autocmd!
@@ -24,7 +26,8 @@ augroup filetype_visualstudio
                 \ setlocal foldmethod=syntax |
                 \ setlocal expandtab |
                 \ setlocal shiftwidth=2 |
-                \ setlocal softtabstop=2
+                \ setlocal softtabstop=2 |
+                \ :normal zR!
 augroup END
 "}}}
 " stj  file settings {{{
