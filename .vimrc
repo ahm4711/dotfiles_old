@@ -3,6 +3,7 @@ call plug#begin() " Plug 'vim-scripts/ShowMarks'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'romainl/vim-qf'
+Plug 'nelstrom/vim-visual-star-search'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -105,6 +106,7 @@ noremap <leader>2 :diffget //2 <Bar> diffupdate<CR>
 noremap <leader>3 :diffget //3 <Bar> diffupdate<CR>
 noremap <leader>D :only<CR>
 noremap <leader>d :Gdiff<CR>
+noremap <leader>gw :Gwrite<Bar>cnext<Bar>Gdiff<CR>
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gp :Gpush<CR>
 noremap <leader>gm :Gmerge<CR>
@@ -114,7 +116,7 @@ noremap <leader>gf :Gfetch<CR>
 highlight Diffchange cterm=bold
 highlight DiffDelete guifg=black
 highlight DiffAdd cterm=bold
-
+autocmd FilterWritePre * if &diff | setlocal wrap | endif
 
 "}}}
 " allow the . to execute once for each line of a visual selection
