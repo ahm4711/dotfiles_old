@@ -101,10 +101,21 @@ set undofile
 set undodir=~/.vim/tmp//
 "}}}
 " git stuff {{{
+noremap <leader>2 :diffget //2 <Bar> diffupdate<CR>
+noremap <leader>3 :diffget //3 <Bar> diffupdate<CR>
+noremap <leader>D :only<CR>
+noremap <leader>d :Gdiff<CR>
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gp :Gpush<CR>
+noremap <leader>gm :Gmerge<CR>
 noremap <leader>gl :Gpull<CR>
 noremap <leader>gf :Gfetch<CR>
+
+highlight Diffchange cterm=bold
+highlight DiffDelete guifg=black
+highlight DiffAdd cterm=bold
+
+
 "}}}
 " allow the . to execute once for each line of a visual selection
 vnoremap . :normal .<CR>
@@ -112,11 +123,11 @@ set path=.,**
 nnoremap <leader>f :find *
 " window mappings
 set wmh=0
-noremap <leader>1 :on!<CR>
-noremap <leader>2 :on!<CR>:vsp<CR>
-noremap <leader>3 :on!<CR>:vsp<CR><C-w>l:sp<CR>
-noremap <leader>4 :on!<CR>:sp<CR>:vsp<CR><C-w>j:vsp<CR>
-noremap <leader>5 :on!<CR>:vsp<CR>:sp<CR><C-w>l:sp<CR>:sp<CR>
+noremap <leader>w1 :on!<CR>
+noremap <leader>w2 :on!<CR>:vsp<CR>
+noremap <leader>w3 :on!<CR>:vsp<CR><C-w>l:sp<CR>
+noremap <leader>w4 :on!<CR>:sp<CR>:vsp<CR><C-w>j:vsp<CR>
+noremap <leader>w5 :on!<CR>:vsp<CR>:sp<CR><C-w>l:sp<CR>:sp<CR>
 " Record into register 'q', playback with 'Q' also disables EX mode...
 nnoremap Q @q
 nnoremap <leader>ex :Explore<cr>
