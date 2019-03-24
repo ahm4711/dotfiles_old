@@ -76,6 +76,8 @@
         " let g:gruvbox_guisp_fallback='bg'
         let g:gruvbox_contrast_dark='hard'
         let g:gruvbox_contrast_light='hard'
+        " add this to gruvbox.vim
+        " hi! TermCursorNC ctermfg=15 guifg=#fdf6e3 ctermbg=14 guibg=#93a1a1 cterm=NONE gui=NONE
         colorscheme gruvbox
     " }
 "}
