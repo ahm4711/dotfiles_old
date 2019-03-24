@@ -108,12 +108,12 @@ set path=.,**
 " Indentation {
     set autoindent     " indent at the same level of prev line
     set tabstop=4      " an indentation every 4  columns
-    let shiftwidth=4   " use indents of 4 spaces
-    let softtabstop=4  " let backspace delete indent
+    set shiftwidth=4   " use indents of 4 spaces
+    set softtabstop=4  " let backspace delete indent
     set expandtab      " tabs are spaces, not tabs
 "}
 " Undo and backup {
-    set nobackup
+set nobackup
     set backupdir=~/.vim/tmp//
     set directory=~/.vim/tmp//
     set undofile
@@ -136,6 +136,33 @@ set path=.,**
     highlight DiffDelete guifg=black
     highlight DiffAdd cterm=bold
     autocmd FilterWritePre * if &diff | setlocal wrap | endif
+" }
+" nvim settings {
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <M-[> <Esc>
+    tnoremap <C-v><Esc> <Esc>
+    " Terminal mode:
+    tnoremap <M-h> <c-\><c-n><c-w>h
+    tnoremap <M-j> <c-\><c-n><c-w>j
+    tnoremap <M-k> <c-\><c-n><c-w>k
+    tnoremap <M-l> <c-\><c-n><c-w>l
+    " Insert mode:
+    inoremap <M-h> <Esc><c-w>h
+    inoremap <M-j> <Esc><c-w>j
+    inoremap <M-k> <Esc><c-w>k
+    inoremap <M-l> <Esc><c-w>l
+    " Visual mode:
+    vnoremap <M-h> <Esc><c-w>h
+    vnoremap <M-j> <Esc><c-w>j
+    vnoremap <M-k> <Esc><c-w>k
+    vnoremap <M-l> <Esc><c-w>l
+    " Normal mode:
+    nnoremap <M-h> <c-w>h
+    nnoremap <M-j> <c-w>j
+    nnoremap <M-k> <c-w>k
+    nnoremap <M-l> <c-w>l
+endif
 " }
 " set the leader key to space
 let mapleader = " "
