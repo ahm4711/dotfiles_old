@@ -192,9 +192,9 @@ noremap <leader>w5 :on!<CR>:vsp<CR>:sp<CR><C-w>l:sp<CR>:sp<CR>
 nnoremap Q @q
 nnoremap <leader>ex :Explore<cr>
 " allow nice edit of vimrc
-nnoremap <leader>ev :edit! $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>pi :w<CR>:source $MYVIMRC<CR>:PlugInstall<CR>
+nnoremap <leader>ev :edit! ~/.vimrc<cr>
+nnoremap <leader>sv :source ~/.vimrc<cr>
+nnoremap <leader>pi :w<CR>:source ~/.vimrc<CR>:PlugInstall<CR>
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nnoremap <F5> :next **/*
