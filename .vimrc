@@ -182,7 +182,6 @@ let maplocalleader = "\\"
     noremap <leader>gs :Gstatus<CR>
     noremap <leader>gp :Gpush<CR>
     noremap <leader>gm :Gmerge<CR>
-    noremap <leader>gl :Gpull<CR>
     noremap <leader>gf :Gfetch<CR>
     "}
 " allow the . to execute once for each line of a visual selection
