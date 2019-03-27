@@ -141,6 +141,9 @@ set nobackup
 " }
 " nvim settings {
 if has('nvim')
+    autocmd TermOpen *
+                \ setlocal nospell |
+                \ setlocal nocursorline
     tnoremap <Esc> <C-\><C-n>
     tnoremap <M-[> <Esc>
     tnoremap <C-v><Esc> <Esc>
@@ -195,6 +198,10 @@ nnoremap <leader>ex :Explore<cr>
 nnoremap <leader>ev :edit! ~/.vimrc<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>pi :w<CR>:source ~/.vimrc<CR>:PlugInstall<CR>
+" for some reason this needs to be here to work, should be a nvim settings
+if has('win32')
+    nnoremap <leader>te :terminal "c:\msys64\usr\bin\bash.exe"<CR>i
+endif
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nnoremap <F5> :next **/*
@@ -205,7 +212,8 @@ noremap <S-F8> :cprev<CR>
 noremap <F11> :exec '!' . getline('.')<CR>
 noremap <F12> :silent call system(getline('.') . " &")<CR>
 
-noremap <leader>q :bd<CR>
+noremap <leader>q :exe ":silent! w! <bar> q!"<CR>
+" noremap <leader>q :bd<CR>
 noremap <leader>w :w<CR>
 " save time use jk to esc
 inoremap jk <esc>
