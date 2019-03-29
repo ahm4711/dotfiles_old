@@ -32,9 +32,9 @@
 "}
 " File format settings {
     " XML {
-    let g:xml_syntax_folding=1
-    autocmd FileType xml setlocal foldmethod=syntax
-    autocmd FileType xml normal zR
+        let g:xml_syntax_folding=1
+        autocmd FileType xml setlocal foldmethod=syntax |
+                    \ :normal zR!
     " }
     " Visual Studio {
         augroup filetype_visualstudio
