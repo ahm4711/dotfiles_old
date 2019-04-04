@@ -48,3 +48,7 @@ Paste into command line
 CTRL-R
 	CTRL-W word 
 	CTRL-A WORD
+    
+
+delete a word
+    daw
