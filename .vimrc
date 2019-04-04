@@ -5,6 +5,8 @@
 " Environment {
     " Basics {
          set nocompatible        " must be first line
+         scriptencoding utf-8
+         set encoding=utf-8
      " }
      " Windows Compatible {
          " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
@@ -68,12 +70,17 @@
     if has('gui')
         set guioptions -=m
         set guioptions -=T
-        set guifont=Monospace\ 12
+        if has('gui_win32')
+            set guifont=Lucida_Console:h11
+        else
+            set guifont=Monospace\ 12
+        endif
     endif
     set background=dark
     set termguicolors
     " gruvbox colorsheme {
         let g:gruvbox_italic=1
+        let g:gruvbox_invert_selection=0
         let g:gruvbox_hls_cursor='blue'
         " let g:gruvbox_guisp_fallback='bg'
         let g:gruvbox_contrast_dark='hard'
