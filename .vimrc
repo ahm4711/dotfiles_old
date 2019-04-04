@@ -108,6 +108,7 @@ set viewoptions=folds,options,cursor,unix,slash " better Unix / windows compatib
 set hidden
 set virtualedit=onemore          " allow for cursor beyond last character
 set list listchars=tab:»·,trail:·,extends:\#,nbsp:. " Highlight problematic white space
+set autoread                     " automatically reload changed files
 set path=.,**
 "set autochdir
 " set encoding=utf8
