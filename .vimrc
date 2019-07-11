@@ -72,6 +72,8 @@
         set guioptions -=T
         if has('gui_win32')
             set guifont=Consolas:h10
+            set columns=250
+            set lines=999
         else
             set guifont=Monospace\ 12
         endif
