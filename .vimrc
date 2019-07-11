@@ -185,7 +185,8 @@ endif
 let mapleader = " "
 let maplocalleader = "\\"
 " git stuff {
-    noremap <leader>2 :diffget //2 <Bar> diffupdate<CR>
+    noremap <leader>2 :diffget //2 <Bar> diffupdate<CR>[c<CR>
+    noremap <leader>3 :diffget //3 <Bar> diffupdate<CR>[c<CR>
     noremap <leader>D :only<CR>
     noremap <leader>d :Gdiff<CR>
     noremap <leader>gw :Gwrite<Bar>cnext<Bar>Gdiff<CR>

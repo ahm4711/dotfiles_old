@@ -1,5 +1,4 @@
 # install on new comp
-
 cd ~
 git init .
 mv .gitconfig .gitconfig.old
@@ -7,6 +6,38 @@ git remote add origin https://github.com/ahm4711/dotfiles.git
 git pull origin master
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# C# code cleanup
+# remove regions
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/#\(end\)\?region/ d' -i
+
+# remove xml doc
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^[ \t]*\/\/\/ / d' -i
+
+# remove BOM
+find . -iname '*.csproj' -print0 | xargs -0 -L1 sed -b -e '1s/^\xef\xbb\xbf//' -i
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '1s/^\xef\xbb\xbf//' -i
+
+# remove header
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^\/\/ <copyright /,/^\/\/ <author / d' -i
+
+#tabs to spaces
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b 's/\t/    /g' -i
+
+# remove empty lines
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b 's/[ \t]*\r$/\r/' -i
+
+# remove duplicate empty lines
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b '/.\r/,/^\r$/!d' -i
+
+
+# remove attributes
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^[ \t]*\[DefaultProperty[ \t]*(.*)\]\r$/ d' -i
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^[ \t]*\[Description[ \t]*(.*)\]\r$/ d' -i
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^[ \t]*\[Browsable[ \t]*(.*)\]\r$/ d' -i
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^[ \t]*\[Localizable[ \t]*(.*)\]\r$/ d' -i
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^[ \t]*\[\(System\.Reflection\.\)\?Obfuscation[ \t]*(.*)\]\r$/ d' -i
+find . -iname '*.cs' -print0 | xargs -0 -L1 sed -b -e '/^[ \t]*\[CLSCompliant[ \t]*(.*)\]\r$/ d' -i
 
 # Movement Mappings
 onoremap p i(
