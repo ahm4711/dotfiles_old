@@ -11,10 +11,10 @@
 [difftool "code"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [core]
-	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	editor = \"C:/Program Files (x86)/Vim/vim81/gvim.exe\"
 	eol = crlf
 [user]
-	name = ahm
+	name = Alexander Holland-Moritz
 	email = ahm@labcognition.com
 [alias]
 	map = "!f() { for i in */; do (cd $i; git rev-parse 2> /dev/null || continue; echo --------------------; echo ${i}; echo --------------------; git ${@}); done }; f"
