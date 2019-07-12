@@ -2,6 +2,7 @@
 
 alias cds='cd /d/_src'
 alias vi=vim
+alias nvi='start /c/Neovim/bin/nvim-qt.exe'
 
 lic.attach() {
     tmr.attach lic $1

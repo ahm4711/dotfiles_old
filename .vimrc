@@ -5,6 +5,8 @@
 " Environment {
     " Basics {
          set nocompatible        " must be first line
+         scriptencoding utf-8
+         set encoding=utf-8
      " }
      " Windows Compatible {
          " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
@@ -23,6 +25,7 @@
         Plug 'romainl/vim-qf'
         Plug 'scrooloose/nerdtree'
         Plug 'tpope/vim-commentary'
+        Plug 'tpope/vim-surround'
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-obsession'
         Plug 'tpope/vim-unimpaired'
@@ -31,8 +34,9 @@
 "}
 " File format settings {
     " XML {
-    let g:xml_syntax_folding=1
-    autocmd FileType xml setlocal foldmethod=syntax
+        let g:xml_syntax_folding=1
+        autocmd FileType xml setlocal foldmethod=syntax |
+                    \ :normal zR!
     " }
     " Visual Studio {
         augroup filetype_visualstudio
@@ -66,12 +70,19 @@
     if has('gui')
         set guioptions -=m
         set guioptions -=T
-        set guifont=Monospace\ 12
+        if has('gui_win32')
+            set guifont=Consolas:h10
+            set columns=250
+            set lines=999
+        else
+            set guifont=Monospace\ 12
+        endif
     endif
     set background=dark
     set termguicolors
     " gruvbox colorsheme {
         let g:gruvbox_italic=1
+        let g:gruvbox_invert_selection=0
         let g:gruvbox_hls_cursor='blue'
         " let g:gruvbox_guisp_fallback='bg'
         let g:gruvbox_contrast_dark='hard'
@@ -99,6 +110,7 @@ set viewoptions=folds,options,cursor,unix,slash " better Unix / windows compatib
 set hidden
 set virtualedit=onemore          " allow for cursor beyond last character
 set list listchars=tab:»·,trail:·,extends:\#,nbsp:. " Highlight problematic white space
+set autoread                     " automatically reload changed files
 set path=.,**
 "set autochdir
 " set encoding=utf8
@@ -141,6 +153,9 @@ set nobackup
 " }
 " nvim settings {
 if has('nvim')
+    autocmd TermOpen *
+                \ setlocal nospell |
+                \ setlocal nocursorline
     tnoremap <Esc> <C-\><C-n>
     tnoremap <M-[> <Esc>
     tnoremap <C-v><Esc> <Esc>
@@ -170,14 +185,14 @@ endif
 let mapleader = " "
 let maplocalleader = "\\"
 " git stuff {
-    noremap <leader>2 :diffget //2 <Bar> diffupdate<CR>
+    noremap <leader>2 :diffget //2 <Bar> diffupdate<CR>[c<CR>
+    noremap <leader>3 :diffget //3 <Bar> diffupdate<CR>[c<CR>
     noremap <leader>D :only<CR>
     noremap <leader>d :Gdiff<CR>
     noremap <leader>gw :Gwrite<Bar>cnext<Bar>Gdiff<CR>
     noremap <leader>gs :Gstatus<CR>
     noremap <leader>gp :Gpush<CR>
     noremap <leader>gm :Gmerge<CR>
-    noremap <leader>gl :Gpull<CR>
     noremap <leader>gf :Gfetch<CR>
     "}
 " allow the . to execute once for each line of a visual selection
@@ -195,6 +210,10 @@ nnoremap <leader>ex :Explore<cr>
 nnoremap <leader>ev :edit! ~/.vimrc<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>pi :w<CR>:source ~/.vimrc<CR>:PlugInstall<CR>
+" for some reason this needs to be here to work, should be a nvim settings
+if has('win32')
+    nnoremap <leader>te :terminal "c:\msys64\usr\bin\bash.exe"<CR>i
+endif
 " search current word
 noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nnoremap <F5> :next **/*
@@ -205,7 +224,8 @@ noremap <S-F8> :cprev<CR>
 noremap <F11> :exec '!' . getline('.')<CR>
 noremap <F12> :silent call system(getline('.') . " &")<CR>
 
-noremap <leader>q :bd<CR>
+noremap <leader>q :exe ":silent! w! <bar> q!"<CR>
+" noremap <leader>q :bd<CR>
 noremap <leader>w :w<CR>
 " save time use jk to esc
 inoremap jk <esc>
