@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 # port scan
 sudo nmap -sP 192.168.1.0/24
 
-
 # install on new comp
-||||||| merged common ancestors
-# install on new comp
-
-=======
-# install on new comp
->>>>>>> d155c83df02e9c96ea97cd80425e902f3bd566b0
 cd ~
 git init .
 mv .gitconfig .gitconfig.old
