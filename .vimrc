@@ -28,8 +28,10 @@
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-obsession'
+        Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-unimpaired'
         Plug 'vim-airline/vim-airline'
+        Plug 'idanarye/vim-merginal'
     call plug#end()
 "}
 " File format settings {
