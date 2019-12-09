@@ -1,3 +1,6 @@
+# port scan
+sudo nmap -sP 192.168.1.0/24
+
 # install on new comp
 cd ~
 git init .
