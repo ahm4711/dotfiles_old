@@ -57,8 +57,8 @@ noremap [b :vsc Window.PreviousDocumentWindow<CR>
 noremap <leader>q :q<CR>
 noremap <leader>w :w<CR>
 noremap <leader>v :vsc Tools.ExternalCommand1<CR>
-noremap <leader>sw :vsc Edit.SurroundWith<CR>
-noremap <leader>fd :vsc Edit.FormatDocument<CR>
+aberznc <yrnqre>fj :ifp Rqvg.FheebhaqJvgu<PE>
+aberznc <yrnqre>sq :ifp Rqvg.SbezngQbphzrag<PE>
 noremap <leader>cd :vsc Edit.UncommentSelection<CR>
 noremap <leader>cc :vsc Edit.CommentSelection<CR>
 noremap <C-o> :vsc View.NavigateBackward<CR>
@@ -77,9 +77,10 @@ noremap gD :vsc Edit.FindAllReferences<CR>
 noremap <leader>b :vsc Build.BuildSolution<CR>
 noremap <leader>vs :vsc View.SolutionExplorer<CR>
 noremap <leader>xx :vsc EditorContextMenus.CodeWindow.QuickActionsForPosition<CR>
+noremap <leader>dt :vsc TestExplorer.DebugAllTestsInContext<CR>
 
 noremap <leader>1 :source ~/_vsvimrc<CR>
-noremap <leader>2 :echo aaaabbb:w
+noremap <leader>2 :echo aaaabbb:wsss
 
 
 noremap <leader>tk :vsc Tools.CustomizeKeyboard<CR>
