@@ -57,8 +57,8 @@ noremap [b :vsc Window.PreviousDocumentWindow<CR>
 noremap <leader>q :q<CR>
 noremap <leader>w :w<CR>
 noremap <leader>v :vsc Tools.ExternalCommand1<CR>
-aberznc <yrnqre>fj :ifp Rqvg.FheebhaqJvgu<PE>
-aberznc <yrnqre>sq :ifp Rqvg.SbezngQbphzrag<PE>
+noremap <leader>sw :vsc Edit.SurroundWith<CR>
+noremap <leader>fd :vsc Edit.FormatDocument<CR>
 noremap <leader>cd :vsc Edit.UncommentSelection<CR>
 noremap <leader>cc :vsc Edit.CommentSelection<CR>
 noremap <C-o> :vsc View.NavigateBackward<CR>
